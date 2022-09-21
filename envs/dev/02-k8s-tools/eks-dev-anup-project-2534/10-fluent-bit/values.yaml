@@ -3,7 +3,7 @@ fluent-bit:
     enabled: false
   envFrom:
   - secretRef:
-      name: ""
+      name: test-case-8
   existingConfigMap: fluentbit-config
   fullnameOverride: fluent
   image:
