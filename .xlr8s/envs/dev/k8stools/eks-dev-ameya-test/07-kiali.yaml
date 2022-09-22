@@ -41,7 +41,7 @@ vars:
                   alb.ingress.kubernetes.io/healthcheck-port: http
                   alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
                   alb.ingress.kubernetes.io/scheme: internet-facing
-                  alb.ingress.kubernetes.io/subnets: subnet-09a2db7fdac92e25c,subnet-0b0f62f5c9a6697d4,subnet-0afccdde86ef8e672
+                  alb.ingress.kubernetes.io/subnets: subnet-09a2db7fdac92e25c,subnet-0b0f62f5c9a6697d4
                   alb.ingress.kubernetes.io/tags: Project Name=Xebia
                   kubernetes.io/ingress.class: alb
               spec:
