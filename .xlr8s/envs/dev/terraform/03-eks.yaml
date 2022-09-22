@@ -7,7 +7,7 @@ module:
 name: 03-eks
 overrides: {}
 refInfra:
-  name: eks-dev-ameya-4
+  name: eks-dev-test-case-6
 vars:
   add_namespaces:
   - enable_istio: false
@@ -40,7 +40,7 @@ vars:
   cluster_endpoint_private_access: true
   cluster_endpoint_private_access_sg: []
   cluster_endpoint_public_access: true
-  cluster_name: eks-dev-ameya-4
+  cluster_name: eks-dev-test-case-6
   cluster_security_group_additional_rules:
     release_management_access:
       cidr_blocks:
@@ -64,6 +64,7 @@ vars:
   - subnet-04b7960f300312134
   - subnet-04bab57cb44a57d4e
   - subnet-07b58f38585473d6d
+  - subnet-0a249502716f6715d
   extra_tags:
     Environment: Dev
     ManagedBy: Terraform

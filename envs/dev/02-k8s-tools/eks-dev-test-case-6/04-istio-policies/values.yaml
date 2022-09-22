@@ -1,0 +1,25 @@
+authorizationPolicy: []
+denyAuthorizationPolicy: false
+extraIngresses: []
+forcemTLS: true
+gateways: []
+ingressForIngressGateway:
+  annotations:
+    alb.ingress.kubernetes.io/group.name: istio-default
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz/ready
+    alb.ingress.kubernetes.io/healthcheck-port: status-port
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-04b7960f300312134,subnet-04bab57cb44a57d4e,subnet-07b58f38585473d6d,subnet-0a249502716f6715d
+    kubernetes.io/ingress.class: alb
+  enabled: true
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: istio-ingressgateway
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
