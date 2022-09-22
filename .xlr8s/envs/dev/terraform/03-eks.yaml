@@ -7,7 +7,7 @@ module:
 name: 03-eks
 overrides: {}
 refInfra:
-  name: eks-dev-ameya-test-2
+  name: eks-dev-ameya-test-3
 vars:
   add_namespaces:
   - enable_istio: false
@@ -40,7 +40,7 @@ vars:
   cluster_endpoint_private_access: true
   cluster_endpoint_private_access_sg: []
   cluster_endpoint_public_access: true
-  cluster_name: eks-dev-ameya-test-2
+  cluster_name: eks-dev-ameya-test-3
   cluster_security_group_additional_rules:
     release_management_access:
       cidr_blocks:
@@ -62,6 +62,7 @@ vars:
   existing_vpc_id: vpc-054d1a3db9b2d4c05
   existing_vpc_subnets:
   - subnet-09a2db7fdac92e25c
+  - subnet-0afccdde86ef8e672
   - subnet-0b0f62f5c9a6697d4
   extra_tags:
     Environment: Dev
