@@ -1,11 +1,8 @@
 env: dev
 git:
   repoUrl: git@github.com:XI2557-AnupFulzele/anup-project.git
-  revision: main
+  revision: eks-dev-test-case-6-1983
 tools:
-- chart: helm-xebia-prometheus@v0.1.1
-  name: 05-prometheus
-  vendor: xebia
 - chart: helm-xebia-opa-gatekeeper@v0.4.3
   name: 01-opa-gatekeeper
   vendor: xebia
@@ -17,6 +14,9 @@ tools:
   vendor: xebia
 - chart: helm-xebia-istio-policies@v0.1.1
   name: 04-istio-policies
+  vendor: xebia
+- chart: helm-xebia-prometheus@v0.1.1
+  name: 05-prometheus
   vendor: xebia
 - chart: helm-xebia-jaeger@v0.2.2
   name: 06-jaeger
