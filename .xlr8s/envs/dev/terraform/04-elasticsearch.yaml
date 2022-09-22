@@ -38,6 +38,3 @@ vars:
   vpc_subnet_ids:
   - subnet-04b7960f300312134
   - subnet-04bab57cb44a57d4e
-  - subnet-07b58f38585473d6d
-  - subnet-0a249502716f6715d
-  - subnet-0e3eece9a3ea6a19d
