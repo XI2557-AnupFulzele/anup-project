@@ -7,7 +7,7 @@ module:
 name: 03-eks
 overrides: {}
 refInfra:
-  name: eks-dev-anup-project-2534
+  name: eks-dev-ameya-test
 vars:
   add_namespaces:
   - enable_istio: false
@@ -39,8 +39,8 @@ vars:
   - authenticator
   cluster_endpoint_private_access: true
   cluster_endpoint_private_access_sg: []
-  cluster_endpoint_public_access: false
-  cluster_name: eks-dev-anup-project-2534
+  cluster_endpoint_public_access: true
+  cluster_name: eks-dev-ameya-test
   cluster_security_group_additional_rules:
     release_management_access:
       cidr_blocks:
@@ -59,8 +59,11 @@ vars:
   existing_system_namespaces:
   - kube-system
   - default
-  existing_vpc_id: $xlr8s.outputs.01-vpc-for-eks.vpc_id
-  existing_vpc_subnets: $xlr8s.outputs.01-vpc-for-eks.private_subnets
+  existing_vpc_id: vpc-054d1a3db9b2d4c05
+  existing_vpc_subnets:
+  - subnet-09a2db7fdac92e25c
+  - subnet-0b0f62f5c9a6697d4
+  - subnet-0afccdde86ef8e672
   extra_tags:
     Environment: Dev
     ManagedBy: Terraform
@@ -70,9 +73,10 @@ vars:
   node_groups:
   - capacity_type: ON_DEMAND
     instance_types:
-    - c5.xlarge
-    labels: {}
-    max_capacity: 3
+    - t3a.large
+    labels:
+      type: memory-intensive
+    max_capacity: 9
     min_capacity: 3
     name: worker-1
   node_groups_defaults:
@@ -102,7 +106,37 @@ vars:
         source_cluster_security_group: true
         to_port: 0
         type: ingress
-  node_security_group_additional_rules: {}
+  node_security_group_additional_rules:
+    fluent_bit_outbound_access:
+      cidr_blocks:
+      - 0.0.0.0/0
+      description: Allow access to outbound 443
+      from_port: "443"
+      protocol: tcp
+      to_port: "443"
+      type: egress
+    ingress_allow_access_from_control_plane:
+      description: Allow access from control plane to webhook port of AWS load balancer
+        controller
+      from_port: 9443
+      protocol: tcp
+      source_cluster_security_group: true
+      to_port: 9443
+      type: ingress
+    ingress_allow_access_from_control_plane_opa:
+      description: Allow access from control plane to webhook port of OPA Gatekeeper
+      from_port: 0
+      protocol: tcp
+      source_cluster_security_group: true
+      to_port: 0
+      type: ingress
+    ingress_self_all:
+      description: Node to node all ports/protocols
+      from_port: 0
+      protocol: "-1"
+      self: true
+      to_port: 0
+      type: ingress
   opensearch_write_assume_role_arn: ""
   prometheus_amp_assume_role_arn: ""
   provider_key_arn: ""
