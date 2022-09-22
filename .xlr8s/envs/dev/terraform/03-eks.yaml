@@ -63,6 +63,7 @@ vars:
   existing_vpc_subnets:
   - subnet-09a2db7fdac92e25c
   - subnet-0afccdde86ef8e672
+  - subnet-0b0f62f5c9a6697d4
   extra_tags:
     Environment: Dev
     ManagedBy: Terraform
