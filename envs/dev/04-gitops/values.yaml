@@ -1,7 +1,7 @@
 env: dev
 git:
   repoUrl: git@github.com:XI2557-AnupFulzele/anup-project.git
-  revision: main
+  revision: eks-dev-existing-subnets-test-5199
 tools:
 - chart: helm-xebia-opa-gatekeeper@v0.4.3
   name: 01-opa-gatekeeper

@@ -27,7 +27,7 @@ vars:
         cpu: 100m
         memory: 128Mi
     serviceAccount:
-      create: true
+      create: false
       name: opensearch-sa
     serviceMonitor:
       enabled: false
@@ -45,7 +45,7 @@ vars:
     config: null
     configmapName: fluentbit-config
     inbuild:
-      isRoleARNProvided: false
+      isRoleARNProvided: true
       logStashPrefix: xlr8s
       namespaces:
       - default
